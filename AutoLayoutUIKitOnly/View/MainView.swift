@@ -27,6 +27,13 @@ class MainView:UIView {
         return button
     }()
     
+    let pictureImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "poster")
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -41,6 +48,7 @@ class MainView:UIView {
         
         self.addSubview(self.textlabel)
         self.addSubview(self.mainButton)
+        self.addSubview(self.pictureImageView)
         
         textlabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -55,6 +63,14 @@ class MainView:UIView {
             mainButton.heightAnchor.constraint(equalToConstant: 40),
             mainButton.widthAnchor.constraint(equalToConstant: 120)
             
+        ])
+        
+        pictureImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pictureImageView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            pictureImageView.bottomAnchor.constraint(equalTo: textlabel.topAnchor,constant: -20),
+            pictureImageView.heightAnchor.constraint(equalToConstant: 350),
+            pictureImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

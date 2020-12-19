@@ -27,9 +27,11 @@ class MainController: UIViewController {
     @objc
     private func buttonGetPressed(){
         self.mainView.textlabel.textColor = .green
+        self.mainView.textlabel.text = "Red"
         swct += 1
         if swct == 2 {
             self.mainView.textlabel.textColor = .red
+            self.mainView.textlabel.text = "Green"
             swct = 0
         }
     }
